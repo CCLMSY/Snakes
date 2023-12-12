@@ -12,18 +12,7 @@ using namespace std;
 
 // 引用该库才能使用 AlphaBlend 函数
 #pragma comment( lib, "MSIMG32.LIB")
-void transparentimage(IMAGE* dstimg, int x, int y, IMAGE* srcimg)
-{
-	HDC dstDC = GetImageHDC(dstimg);
-	HDC srcDC = GetImageHDC(srcimg);
-	int w = srcimg->getwidth();
-	int h = srcimg->getheight();
-	BLENDFUNCTION bf = { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA };
-	AlphaBlend(dstDC, x, y, w, h, srcDC, 0, 0, w, h, bf);
-}// 透明贴图函数（by 慢羊羊）
-//	dstimg: 目标 IMAGE 对象指针。NULL 表示默认窗体
-//	x, y:	目标贴图位置
-//	srcimg: 源 IMAGE 对象指针。NULL 表示默认窗体
+void transparentimage(IMAGE*, int , int , IMAGE* );
 
 const auto SPEED = 300; //速度：每SPEED毫秒移动一次
 
@@ -343,3 +332,16 @@ void Game_Over() {//游戏结束：玩家闪烁3秒
 		Sleep(300);
 	}
 }
+
+void transparentimage(IMAGE* dstimg, int x, int y, IMAGE* srcimg)
+{
+	HDC dstDC = GetImageHDC(dstimg);
+	HDC srcDC = GetImageHDC(srcimg);
+	int w = srcimg->getwidth();
+	int h = srcimg->getheight();
+	BLENDFUNCTION bf = { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA };
+	AlphaBlend(dstDC, x, y, w, h, srcDC, 0, 0, w, h, bf);
+}// 透明贴图函数（by 慢羊羊）
+//	dstimg: 目标 IMAGE 对象指针。NULL 表示默认窗体
+//	x, y:	目标贴图位置
+//	srcimg: 源 IMAGE 对象指针。NULL 表示默认窗体
