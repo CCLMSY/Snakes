@@ -72,7 +72,7 @@
 ## 素材来源/Source of Materials
 背景图片；来源于网络，经个人修改，如有侵权，请联系删除。
 
-方块图案：[阿里巴巴矢量图标库](https://www.iconfont.cn/)
+图案：[阿里巴巴矢量图标库](https://www.iconfont.cn/)
 
 ## 项目截图/Project Screenshots
 ![Screenshot1](Screenshots/1.png)
